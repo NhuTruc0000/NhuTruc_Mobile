@@ -10,7 +10,7 @@ class AuthViewModel : ViewModel() {
     var email by mutableStateOf("")
     var code by mutableStateOf("")
     var newPassword by mutableStateOf("")
-
+    
     fun sendVerificationCode() {
         // Gửi mã đến email
     }

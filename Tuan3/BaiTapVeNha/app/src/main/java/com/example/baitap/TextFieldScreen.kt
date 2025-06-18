@@ -30,9 +30,9 @@ fun TextFieldScreen(onBack: () -> Unit) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = "<",
+                text = "< Back",
                 color = Color.Blue,
-                fontSize = 24.sp,
+
                 modifier = Modifier
                     .clickable { onBack() }
                     .padding(end = 16.dp)
@@ -40,8 +40,10 @@ fun TextFieldScreen(onBack: () -> Unit) {
             Text(
                 text = "TextField",
                 fontWeight = FontWeight.Bold,
+
                 fontSize = 20.sp,
                 color = Color(0xFF2196F3)
+
             )
         }
 

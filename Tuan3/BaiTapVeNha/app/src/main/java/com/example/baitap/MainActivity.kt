@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             BaiTapTheme {
 
-                // Stack để điều hướng giữa các màn hình
+
                 val screenStack = remember { mutableStateListOf("welcome") }
                 val currentScreen = screenStack.last()
 

@@ -21,7 +21,7 @@ sealed class Screen(val route: String) {
 @Composable
 fun NavGraph(navController: NavHostController, viewModel: AuthViewModel) {
     NavHost(navController, startDestination = Screen.Forget.route) {
-        composable(Screen.Forget.route) {
+        composable(Screen.Forget.route){
             ForgetPasswordScreen(navController, viewModel)
         }
         composable(Screen.Verify.route) {

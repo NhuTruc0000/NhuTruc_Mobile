@@ -22,17 +22,17 @@ import androidx.compose.ui.unit.sp
 import com.example.baitap.ui.theme.BaiTapTheme
 
 // Màu sắc sử dụng
-val topBarBlueColor = Color(0xFF007AFF) // Màu xanh dương cho TopAppBar
-val lightBlueBoxColor = Color(0xFFCADDFF) // Xanh dương nhạt cho các ô
-val mediumBlueBoxColor = Color(0xFF6EA3FF) // Xanh dương đậm hơn cho ô giữa
+val topBarBlueColor = Color(0xFF007AFF)
+val lightBlueBoxColor = Color(0xFFCADDFF)
+val mediumBlueBoxColor = Color(0xFF6EA3FF)
 val screenBackgroundColor = Color.White
-val itemContainerBackgroundColor = Color(0xFFF0F2F5) // Màu nền xám rất nhạt cho container
+val itemContainerBackgroundColor = Color(0xFFF0F2F5)
 
 class RowLayoutActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            BaiTapTheme { // Thay thế bằng Theme của ứng dụng bạn
+            BaiTapTheme {
                 RowLayoutScreen(onBack = {})
             }
         }
@@ -44,12 +44,12 @@ class RowLayoutActivity : ComponentActivity() {
 fun RowLayoutScreen(onBack: () -> Unit) {
     Scaffold(
         topBar = {
-            CenterAlignedTopAppBar( // CenterAlignedTopAppBar để tiêu đề căn giữa dễ hơn
+            CenterAlignedTopAppBar(
                 title = {
                     Text(
                         text = "Row Layout",
                         color = topBarBlueColor,
-                        fontWeight = FontWeight.SemiBold, // Hoặc FontWeight.Bold
+                        fontWeight = FontWeight.SemiBold,
                         fontSize = 18.sp
                     )
                 },
@@ -63,30 +63,30 @@ fun RowLayoutScreen(onBack: () -> Unit) {
                     )
                 },
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                    containerColor = screenBackgroundColor // Nền trắng cho TopAppBar
+                    containerColor = screenBackgroundColor
                 )
             )
         },
-        containerColor = screenBackgroundColor // Nền trắng cho toàn màn hình
+        containerColor = screenBackgroundColor
     ) { innerPadding ->
         Column(
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize()
-                .padding(16.dp), // Padding chung cho nội dung
+                .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Container cho các hàng item, có nền xám nhạt và bo góc
+
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(itemContainerBackgroundColor, RoundedCornerShape(12.dp))
-                    .padding(16.dp) // Padding bên trong container
+                    .padding(16.dp)
             ) {
                 Column(
-                    verticalArrangement = Arrangement.spacedBy(12.dp) // Khoảng cách giữa các hàng
+                    verticalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
-                    repeat(4) { // Tạo 4 hàng
+                    repeat(4) {
                         ItemRow()
                     }
                 }
@@ -99,12 +99,12 @@ fun RowLayoutScreen(onBack: () -> Unit) {
 fun ItemRow() {
     Row(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween // Phân bố đều không gian
+        horizontalArrangement = Arrangement.SpaceBetween
     ) {
         ColorBoxItem(color = lightBlueBoxColor, modifier = Modifier.weight(1f))
-        Spacer(modifier = Modifier.width(12.dp)) // Khoảng cách giữa các box
+        Spacer(modifier = Modifier.width(12.dp))
         ColorBoxItem(color = mediumBlueBoxColor, modifier = Modifier.weight(1f))
-        Spacer(modifier = Modifier.width(12.dp)) // Khoảng cách giữa các box
+        Spacer(modifier = Modifier.width(12.dp))
         ColorBoxItem(color = lightBlueBoxColor, modifier = Modifier.weight(1f))
     }
 }
@@ -113,12 +113,11 @@ fun ItemRow() {
 fun ColorBoxItem(color: Color, modifier: Modifier = Modifier) {
     Box(
         modifier = modifier
-            .height(55.dp) // Chiều cao cố định cho các box
+            .height(55.dp)
             .clip(RoundedCornerShape(8.dp)) // Bo góc
             .background(color)
     )
-    // Nếu bạn muốn thêm nội dung vào box, có thể đặt ở đây
-    // Ví dụ: Text("Item", modifier = Modifier.align(Alignment.Center))
+
 }
 
 
